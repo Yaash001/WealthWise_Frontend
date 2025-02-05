@@ -2,8 +2,12 @@
 import './SignUp.css';
 import Navig from './Navig';
 import Button from './Button';
+import Eye from './ShowPass';
 import './Button.css'
+import { useState } from 'react';
 function SignUp() {
+  const [pass,setPass] = useState(false);
+  const [compass,setcomPass] = useState(false);
     return (
         <div className="Form">
           <Navig />
@@ -28,15 +32,18 @@ function SignUp() {
     <input type="email" id="Email" name="email" required />
     <br />
 
-    <label htmlFor="PassWord">Enter Password:</label>
-    <input type="password" id="passWord" name="passWord" required />
+    <label htmlFor="PassWord">Enter Password:</label><div className='pass-f'>
+    <input type={pass ? "text" : "password"} id="passWord" name="passWord" required />
+   <Eye toggleVisibility={()=> setPass(!pass)}/></div>
     <br />
 
     <label htmlFor="RePass">Confirm Password:</label>
+    <div className='pass-f'>
     <input type="password" id="RePass" name="passWord" required />
-    <br />
+    <Eye toggleVisibility={()=> setcomPass(!compass)}/>
+    </div>
 
-    
+    <br />
 
     <Button txt="SIGNUP"/>
   </form>
