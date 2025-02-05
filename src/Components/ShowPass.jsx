@@ -6,3 +6,5 @@ function Eye({toggleVisibility}) {
     );
     
 }
+
+export default Eye;
