@@ -1,0 +1,32 @@
+nav{
+    background-color: #818589;
+    color: whitesmoke;
+    display: flex;
+    margin-bottom:35px ;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+}
+nav h1 {
+    margin-left: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    color: aliceblue;
+    transition: color 0.3s ease-in-out;
+}
+nav h1:hover{
+    color: black;
+}
+
+nav a{
+    text-align: left;
+padding: 3px;
+text-decoration: none;
+margin-right: 25px;
+font-size:1.2em;
+transition:  background 0.3s ease ;
+}
+ a:hover{
+    color: black;
+    background-color: #D3D3D3	;
+ }
