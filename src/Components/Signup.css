@@ -1,0 +1,88 @@
+.SignUpForm {
+    font-family: Calibri;
+  }
+  h3{
+    width: max-content;
+    border-radius: 8px;
+      transition: background-color 0.3s ease;
+  }
+  h3:hover{
+  background-color:#FFF0F5;
+    color: #002244;
+    }
+  
+  .Head {
+    border-radius: 5px;
+width: 400px;  
+padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    font-weight: bold;
+    color: aliceblue;
+    background-color: #111;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Head:hover{
+    box-shadow: 0px 4px 10px #002244;
+  }
+  
+  .SignUp {
+    color: aliceblue;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width:auto ;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+  }
+  
+  .SignUpForm {
+    background-color: #111;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    transition: all 0.3s ease-in-out;
+  }
+  .SignUpForm:hover {
+    background-color: #1a1a1a;
+    box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+  }
+  .SignUpForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .SignUpForm input,
+  .SignUpForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  input {
+    width: 100%;
+    padding: 8px;
+    transition: background-color 0.4s ease;
+    margin-right: 10px;
+    box-sizing: border-box;
+  }
+  input:hover{
+  background-color:#a0d2eb ;
+  }
+  
