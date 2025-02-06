@@ -5,15 +5,15 @@ function Navig() {
 <nav>
     <h1>WealthWise</h1>
     <div>
-       <Link to='/Login'>LOGIN</Link>
+       {/*<Link to='/Login'>LOGIN</Link>
     
         <Link to='/Signup'>SIGNUP</Link>
         
         <Link to='/About'>ABOUT</Link>
-        {/*}
+        */}
         <a href='/Signp'>SIGNUP</a>
         <a href='/Login'>LOGIN</a>
-        <a href='/About'>ABOUT</a>*/}
+        <a href='/About'>ABOUT</a>
     </div>
 </nav>
 
