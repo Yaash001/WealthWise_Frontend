@@ -1,9 +1,21 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './Components/SignUp';
+import Login from './Components/Login';
+import Navig from './Components/Navig';
+import Home from './Components/Home'; 
+
 function App() {
   return (
-    <SignUp/>
-     );
+    <Router>
+      <Navig />
+      <Routes>
+        <Route path="/Home" element={<Home />} /> 
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
