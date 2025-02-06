@@ -24,11 +24,26 @@ function SignUp() {
   };
   async function handleSubmit(e) {
     e.preventDefault();
+    if(formData.passWord !== formData.RePass){
+      alert("BOTH PASSWORDS ARE NOT SAME...");
+      return;
+    }
+    const { RePass, ...dataToSend } = formData; 
 
-    const response = await fetch("Ithe backend url yeil", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(formData), });
+    const response = await fetch("ithe backend endpoint yenar", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(dataToSend), });
 
-    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("Server error:", response.status);
+      return;
+  }
+
+  const data = await response.json().catch(() => {
+      console.error("Invalid JSON response from backend");
+  });
+    
     console.log("Response:", data);
+  
   }
 
     return (
@@ -75,6 +90,6 @@ function SignUp() {
 </div>
 
        );
-  }
+      }
 
   export default SignUp;
