@@ -5,6 +5,7 @@ import Button from './Button';
 import Eye from './ShowPass';
 import './Button.css'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [pass,setPass] = useState(false);
@@ -48,7 +49,7 @@ function SignUp() {
 
     return (
         <div className="Form">
-          <Navig />
+          
 <h4 className="Head">Signup</h4>
 
 <div className="SignUp">
@@ -83,6 +84,9 @@ function SignUp() {
     </div>
 
     <br />
+    Already Having A Account?{' '}
+    <Link to="/login">Login!!</Link>
+    <br/> <br/>
 
     <Button txt="SIGNUP"/>
   </form>
