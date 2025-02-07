@@ -7,14 +7,17 @@ import Home from './Components/Home';
 
 function App() {
   return (
+    <div>
     <Router>
       <Navig />
       <Routes>
+        
         <Route path="/Home" element={<Home />} /> 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
+    </div>
   );
 }
 
