@@ -19,7 +19,7 @@ nav h1:hover{
 }
 
 nav a{
-    color: black;
+    color:#FFF4CE;
 
     text-align: left;
 padding: 3px;
@@ -29,11 +29,11 @@ font-size:1.2em;
 transition:  background 0.3s ease ;
 }
 a:visited{
-    color: black;
+    color: #FFF4CE;
 
 }
  a:hover{
-    color: black;
-    background-color: #D3D3D3;
+    color: #FFF4CE;
+    background-color: #0d031b;
     border-radius: 12px;
  }

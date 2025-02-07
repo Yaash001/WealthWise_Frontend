@@ -10,11 +10,7 @@ function Navig() {
     
         <Link to='/Signup'>SIGNUP</Link>
         
-        <Link to='/Home'>Home</Link>
-        
-       {/* <a href='/Signp'>SIGNUP</a>
-        <a href='/Login'>LOGIN</a>
-        <a href='/About'>ABOUT</a>*/}
+        <Link to='/Home'>HOME</Link>
     </div>
 </nav>
 
