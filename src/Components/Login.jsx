@@ -6,11 +6,9 @@ export default function Login() {
   const [pass, setPass] = useState(false);
 const [uid,setUid] = useState("");
 const [password,setPassword] = useState("");
-{/*const navig = useNavigate();  //For Navigtion Prposre*/}
 
 const handleSubmit = async(e) =>{
 e.preventDefault();
-{/*navig("/Dashboard");*/}
 }
 
   const showPass = (value) => {
@@ -26,14 +24,14 @@ e.preventDefault();
         </div>
 
         <div className="form-div">
-          <form onSubmit={handleSubmit} class="demo">
+          <form onSubmit={handleSubmit} className="demo">
             <div className="demo">
 
               <br />
 
               <label htmlFor="uid">Enter Uid:</label>
               <input type="text" id="uid" name="uid" required  
-        onChange={(e) => setUid(e.target.value)} val = {uid}/>
+        onChange={(e) => setUid(e.target.value)} value = {uid}/>
             </div>
 
             <div className="demo">
@@ -43,7 +41,7 @@ e.preventDefault();
                 id="pass"
                 name="pass"
                 required
-                onChange={(e)=>setPass(e.target.value)} val = {pass}
+                onChange={(e)=>setPassword(e.target.value)} value = {pass}
               />
               <button
                 className="pass"
@@ -54,7 +52,7 @@ e.preventDefault();
               </button>
             </div>
             Not Having Account?<a href="/signup">SignUp!!</a>
-            <div class="demo">
+            <div className="demo">
               <Button txt="Login"/>
             </div>
           </form>

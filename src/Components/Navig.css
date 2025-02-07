@@ -6,6 +6,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
+    box-shadow: #0d031b;
 }
 nav h1 {
     margin-left: 25px;
@@ -20,7 +21,6 @@ nav h1:hover{
 
 nav a{
     color:#FFF4CE;
-
     text-align: left;
 padding: 3px;
 text-decoration: none;
@@ -36,4 +36,5 @@ a:visited{
     color: #FFF4CE;
     background-color: #0d031b;
     border-radius: 12px;
+    
  }
