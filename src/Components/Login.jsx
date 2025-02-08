@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 export default function Login() {
   const [pass, setPass] = useState(false);
