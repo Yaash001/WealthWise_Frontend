@@ -49,9 +49,7 @@ function SignUp() {
 
     return (
         <div className="Form">
-          
-<h4 className="Head">Signup</h4>
-
+          <div className="signup-title">Signup</div>
 <div className="SignUp">
   <form className="SignUpForm" onSubmit={handleSubmit}>
     <h3>Family Information </h3>
