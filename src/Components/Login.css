@@ -71,8 +71,8 @@ input:hover {
 
   .pass-f {
     display: flex;
-    align-items: center;
-    position: relative;
+  align-items: center;
+  position: relative;
   }
   
 
@@ -82,14 +82,15 @@ input:hover {
   }
   
   .pass {
-    position: absolute;
-    right: 10px;
+    position: right;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
     color: white;
     font-size: 0.9rem;
+    padding: 2px 5px;
     cursor: pointer;
   }
   
@@ -124,4 +125,24 @@ input:hover {
   }
   a:hover {
     text-decoration: underline;
+  }
+
+  .input{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .input input{
+    flex: 1;
+    padding-right: 30px;
+  }
+
+  .input span
+  {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
   }
