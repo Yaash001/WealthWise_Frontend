@@ -5,12 +5,13 @@ function Navig() {
     return (
 <nav>
     <h1>WealthWise</h1>
-    <div>
+    <div className="navbar">
+    <Link to='/Home'>HOME</Link>
+
       <Link to='/Login'>LOGIN</Link>
     
         <Link to='/Signup'>SIGNUP</Link>
         
-        <Link to='/Home'>HOME</Link>
     </div>
 </nav>
 
