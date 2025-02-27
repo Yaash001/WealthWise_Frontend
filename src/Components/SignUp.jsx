@@ -31,7 +31,7 @@ function SignUp() {
     }
     const { RePass, ...dataToSend } = formData; 
 
-    const response = await fetch("http://localhost:8080/user/signup", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(dataToSend), });
+    const response = await fetch("/user/signup", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(dataToSend), });
 
 
     if (!response.ok) {
@@ -70,15 +70,20 @@ function SignUp() {
     <br />
 
     <label htmlFor="PassWord">Enter Password:</label><div className='pass-f'>
+      <div className="ip">
     <input type={pass ? "text" : "password"} id="passWord" name="passWord" onChange={handleChange} required />
    <Eye toggleVisibility={()=> setPass(!pass)}/>
    </div>
+   </div>
+   
     <br />
 
     <label htmlFor="RePass">Confirm Password:</label>
     <div className='pass-f'>
+    <div className="ip">
     <input type={compass ? "text" : "password"}  id="RePass" name="RePass" onChange={handleChange} required />
     <Eye toggleVisibility={()=> setcomPass(!compass)}/>
+      </div>
     </div>
 
     <br />
