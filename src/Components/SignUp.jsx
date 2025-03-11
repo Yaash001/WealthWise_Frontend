@@ -12,10 +12,11 @@ function SignUp() {
   const [compass,setcomPass] = useState(false);
 
   const [formData,setData] = useState({
-    familyName:"",
     firstName:"",
-    number:"",
+    middleName:"",
+    lastName:"",
     email:"",
+    number:"",
     passWord:"",
     RePass:""
   });
@@ -31,7 +32,11 @@ function SignUp() {
     }
     const { RePass, ...dataToSend } = formData; 
 
-    const response = await fetch("/user/signup", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(dataToSend), });
+    const response = await fetch("http://localhost:8080/user/Usersignup", 
+      { method: "POST", 
+        headers: { "Content-Type": "application/json", }
+        , body: JSON.stringify(dataToSend),
+       });
 
 
     if (!response.ok) {
@@ -49,44 +54,47 @@ function SignUp() {
 
     return (
         <div className="Form">
-          <div className="signup-title">Signup</div>
 <div className="SignUp">
   <form className="SignUpForm" onSubmit={handleSubmit}>
-    <h3>Family Information </h3>
-    <label htmlFor="familyName">Enter Last/Family Name:</label>
-    <input type="text" id="familyName" name='familyName' onChange={handleChange}required />
-<h3>User Information </h3>
-    <label htmlFor="FName">Enter First Name:</label>
-    <input type="text" id="firstName" name="firstName" onChange={handleChange} required />
-    <br />
-
+    <h3>User Information </h3>
+    <label htmlFor="firstName">Enter First Name:</label>
+    <input type="text" id="firstName" name='firstName' onChange={handleChange} required />
     
-    <label htmlFor="contact">Enter Contact Number:</label>
-    <input type="text" id="number" name="number" onChange={handleChange} required />
+    <label htmlFor="middleName">Enter Middle Name:</label>
+    <input type="text" id="middleName" name='middleName' onChange={handleChange}required />
+
+    <label htmlFor="lastName">Enter Last Name:</label>
+    <input type="text" id="lastName" name="lastName" onChange={handleChange} required />
     <br />
 
     <label htmlFor="Email">Enter Email Id:</label>
     <input type="email" id="Email" name="email" onChange={handleChange} required />
     <br />
 
+    <label htmlFor="contact">Enter Contact Number:</label>
+    <input type="text" id="number" name="number" onChange={handleChange} required />
+    <br />
+
+
     <label htmlFor="PassWord">Enter Password:</label><div className='pass-f'>
       <div className="ip">
-    <input type={pass ? "text" : "password"} id="passWord" name="passWord" onChange={handleChange} required />
+    <input type={pass ? "text" : "password"} id="passWord" name="passWord" onChange={handleChange}  autoComplete="new-password" required />
    <Eye toggleVisibility={()=> setPass(!pass)}/>
    </div>
    </div>
    
-    <br />
 
     <label htmlFor="RePass">Confirm Password:</label>
     <div className='pass-f'>
     <div className="ip">
-    <input type={compass ? "text" : "password"}  id="RePass" name="RePass" onChange={handleChange} required />
+    <input type={compass ? "text" : "password"}  id="RePass" name="RePass" autoComplete="new-password" onChange={handleChange} required />
     <Eye toggleVisibility={()=> setcomPass(!compass)}/>
       </div>
     </div>
+    <h3>Family Information </h3>
+    <label htmlFor="familyName">Enter Family Name:</label>
+    <input type="text" id="familyName" name="familyName" onChange={handleChange} required />
 
-    <br />
     Already Having A Account?{' '}
     <Link to="/login">Login!!</Link>
     <br/> <br/>
