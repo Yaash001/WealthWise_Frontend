@@ -12,7 +12,7 @@ const [password,setPassword] = useState("");
 const handleSubmit = async(e) =>{
 e.preventDefault();
 try {
-  const response = await fetch("http://localhost:8080/user/login", {
+  const response = await fetch("login url of backend", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: uid, password }),
