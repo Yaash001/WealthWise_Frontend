@@ -16,7 +16,7 @@ function SignUp() {
     middleName:"",
     lastName:"",
     email:"",
-    number:"",
+    contactNumber:"",
     passWord:"",
     RePass:""
   });
@@ -72,7 +72,7 @@ function SignUp() {
     <br />
 
     <label htmlFor="contact">Enter Contact Number:</label>
-    <input type="text" id="number" name="number" onChange={handleChange} required />
+    <input type="text" id="contactNumber" name="contactNumber" onChange={handleChange} required />
     <br />
 
 
