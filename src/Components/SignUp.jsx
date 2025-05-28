@@ -18,7 +18,8 @@ function SignUp() {
     email:"",
     contactNumber:"",
     passWord:"",
-    RePass:""
+    RePass:"",
+    familyName:""
   });
 
   const handleChange=(e)=>{
