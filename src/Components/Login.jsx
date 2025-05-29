@@ -50,7 +50,7 @@ try {
 
               <br />
 
-              <label htmlFor="uid">Enter Uid:</label>
+              <label htmlFor="uid">Enter UID:</label>
               <input type="text" id="uid" name="uid" required  
         onChange={(e) => setUid(e.target.value)} value = {uid}/>
             </div>
@@ -68,13 +68,6 @@ try {
               />
               <Eye toggleVisibility={() => setPass(!pass)} />
               </div>
-              {/*<button
-                className="pass"
-                type="button"
-                onClick={() => showPass(!pass)}
-              >
-                {pass ? 'Hide' : 'Show'}
-              </button>*/}
             </div>
             Not Having Account?<a href="/signup">SignUp!!</a>
             <div className="demo">
