@@ -16,9 +16,9 @@ function SignUp() {
     lastName: "",
     email: "",
     contactNumber: "",
-    passWord: "",
+    password: "",
     RePass: "",
-    familyName: ""
+    family_name: ""
   });
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (formData.passWord !== formData.RePass) {
+    if (formData.password !== formData.RePass) {
       alert("BOTH PASSWORDS ARE NOT SAME...");
       return;
     }
@@ -80,10 +80,10 @@ function SignUp() {
           <label htmlFor="contact">Enter Contact Number:</label>
           <input autoComplete="tel" type="text" id="contactNumber" name="contactNumber" onChange={handleChange} required />
 
-          <label htmlFor="PassWord">Enter Password:</label>
+          <label htmlFor="Password">Enter Password:</label>
           <div className='pass-f'>
             <div className="ip">
-              <input type={pass ? "text" : "password"} id="passWord" name="passWord" autoComplete="new-password" onChange={handleChange} required />
+              <input type={pass ? "text" : "password"} id="password" name="password" autoComplete="new-password" onChange={handleChange} required />
               <Eye toggleVisibility={() => setPass(!pass)} />
             </div>
           </div>
@@ -98,7 +98,7 @@ function SignUp() {
 
           <h3>Family Information</h3>
           <label htmlFor="familyName">Enter Family Name:</label>
-          <input type="text" id="familyName" name="familyName" onChange={handleChange} required />
+          <input type="text" id="family_name" name="family_name" onChange={handleChange} required />
 
           Already Having An Account? <Link to="/login">Login!!</Link>
           <br /><br />
