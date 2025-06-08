@@ -1,81 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import Button from './Button';
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
-import Eye from './ShowPass';
+import { useState } from "react"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { useNavigate, Link } from "react-router-dom"
+import { toast } from "sonner"
+import { Loader2, Eye, EyeOff } from "lucide-react"
 
-export default function Login() {
-  const [pass, setPass] = useState(false);
-const [uid,setUid] = useState("");
-const [password,setPassword] = useState("");
+export default function LoginPage() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [showPass, setShowPass] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
-const handleSubmit = async(e) =>{
-e.preventDefault();
-try {
-  const response = await fetch("login url of backend", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email: uid, password }),
-  });
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-  if (response.ok) {
-    const data = await response.json();
-    localStorage.setItem("accessToken", data.accessToken);
-    localStorage.setItem("refreshToken", data.refreshToken);
-    navigate("/dashboard");
+  try {
+    const res = await fetch("http://localhost:8080/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    let d;
+    const contentType = res.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+     d = await res.json();
+    } else {
+     d = await res.text();
+    }
+    if (res.ok) {
+      if (d.token) {
+        localStorage.setItem("token", d.token);
+        toast.success("Login successful!");
+        navigate("/dashboard");
+      } else {
+        toast.error("Token missing in response.");
+      }
+    } else {
+      toast.error(typeof data === "string" ? d : d.message || "Invalid credentials");
+    }
+  } catch (error) {
+    toast.error("Network error. Please try again.");
   }
-   else {
-    alert("Login failed!");
-  }
-} catch (error) {
-  console.error("Login error:", error);
-}
-}
 
-  const showPass = (value) => {
-    setPass(value);
-  };
-
+  setLoading(false);
+};
   return (
-    <div className="App">
-      <div className="box">
-        <div className="text-">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm space-y-6">
+        <h1 className="text-2xl font-bold text-center">Login</h1>
+        <form onSubmit={handleLogin} className="space-y-4">
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-          <h4>Login</h4>
-        </div>
+          <div className="relative">
+            <Input
+              type={showPass ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span
+              className="absolute right-3 top-2.5 cursor-pointer"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
+            </span>
+          </div>
 
-        <div className="form-div">
-          <form onSubmit={handleSubmit} className="demo">
-            <div className="demo">
+          <Button
+            type="submit"
+            className="w-full bg-white hover:bg-blue-400 flex items-center justify-center gap-2 text-black"
+            disabled={loading}
+          >
+            {loading && <Loader2 className="animate-spin h-10 w-10" />}
+            {loading ? "Logging in..." : "Login"}
+          </Button>
+        </form>
 
-              <br />
-
-              <label htmlFor="uid">Enter UID:</label>
-              <input type="text" id="uid" name="uid" required  
-        onChange={(e) => setUid(e.target.value)} value = {uid}/>
-            </div>
-
-            <div className="demo">
-              
-              <label htmlFor="pass">Enter Password:</label>
-              <div className="input">
-              <input
-                type={pass ? 'text' : 'password'}
-                id="pass"
-                name="pass"
-                required
-                onChange={(e)=>setPassword(e.target.value)} 
-              />
-              <Eye toggleVisibility={() => setPass(!pass)} />
-              </div>
-            </div>
-            Not Having Account?<a href="/signup">SignUp!!</a>
-            <div className="demo">
-              <Button txt="Login"/>
-            </div>
-          </form>
-        </div>
+        <p className="text-sm text-center">
+          <Link to="/forgot" className="text-blue-500 hover:bg-white visited:text-blue-600">
+            Forgot Password?
+          </Link>
+        </p>
+        <p className="text-sm text-center">
+          <Link to="/signup" className="text-blue-500 hover:bg-white visited:text-blue-600">
+            New? Sign up here!
+          </Link>
+        </p>
       </div>
     </div>
-  );
+  )
 }
